@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Başlıksız Belge</title>
+<style>
+input[type="text"]{outline:none; height:21px; width:97%; border:1px solid #999999;  color:#666666;}
+input[type="text"]:hover{border:1px solid #5AB0DB;}
+
+input[type="submit"], input[type="reset"]{outline:none; height:28px; width:80px; border:1px solid #999999; background-color:#f9f9f9; cursor:pointer; color:#666666;}
+input[type="submit"]:hover, input[type="reset"]:hover{border:1px solid #5AB0DB;}
+
+textarea{outline:none; height:60px; width:97%; border:1px solid #999999; max-height:60px; color:#666666;}
+textarea:hover {border:1px solid #5AB0DB;}
+.inputtext{padding:5px;}
+</style>
+<!------------İletişim Formu Boş Geçme Hatası-------------->
+<style>
+#adsoyadhata,#epostahata
+{
+float:left; width:198px; height:32px; background-image:url(validate/hata_bg.png); font:11px Arial; color:#FF7373; line-height:40px; position:absolute; z-index:99; margin:17px 0px 0px 10px; display:none; cursor:pointer;
+}
+
+	#iletisimform{
+								width:300px;
+								float:left;
+								margin-right:20px;
+								font-size:10px;
+									font-family:Arial, Helvetica, sans-serif;
+								margin-top:30px;
+								}
+								
+								#adresbilgi{
+									width:330px;
+									float:left;
+									font-size:10px;
+									font-family:Arial, Helvetica, sans-serif;
+									margin-top:30px;
+									
+									
+									}
+
+
+</style>
+<script language="javascript" type="text/javascript">
+function bosmu(iadi,hatasi) {
+  var deger=document.getElementById(iadi).value;
+    if(deger==''){
+  	document.getElementById(hatasi).style.display="block";
+	document.getElementById(iadi).select();
+  }
+  else
+  {
+	document.getElementById(hatasi).style.display="none";
+  }
+}
+
+function hatakapat(gelenid){
+	document.getElementById(gelenid).style.display="none";
+}
+</script>
+<!-------------İletişim Formu Boş Geçme Hatası Son------------->
+
+</head>
+
+<body>
+<div  style="height:8px; margin-top:-8px;background-color:#0839a2;"></div>
+<div id="iletisimform">
+İLETİŞİM FORMU<BR><BR>
+<form name="form1" method="post" action="index.php?page=iletisim&gonder=1" id="form1">
+        <table width="100%" border="0">
+        <tr height="5">
+        <td></td>
+        </tr>
+       
+       
+        <tr>
+        <td><div id="adsoyadhata" onclick="hatakapat(this.id)" style="display:<? if($_GET["gonder"] and ($_POST["adisoyadi"]=="" or  $_POST["mail"]=="")){echo "block";}?>">&nbsp;&nbsp;Ad Soyad alanı boş geçilemez!</div>
+        <input name="adisoyadi" type="text" id="adisoyadi" size="46" onblur="bosmu(this.id,'adsoyadhata')" placeholder="Ad Soyad" class="inputtext" /></td>
+        </tr>
+        <tr height="5">
+        <td></td>
+        </tr>
+        <tr>
+        <td>
+        <input name="telefon" type="text" id="telefon3" size="46" placeholder="Telefon" class="inputtext"  />
+        </td>
+        </tr>
+        <tr height="5">
+        <td></td>
+        </tr>
+        <tr>
+        <td><div id="epostahata" onclick="hatakapat(this.id)" style="display:<? if($_GET["gonder"] and ($_POST["adisoyadi"]=="" or  $_POST["mail"]=="")){echo "block";}?>">&nbsp;&nbsp;E-Posta alanı boş geçilemez!</div>
+        <input name="mail" type="text" id="email3" size="46" onblur="bosmu(this.id,'epostahata')" placeholder="E-Mail" class="inputtext"  /></td>
+        </tr>
+        <tr height="5">
+        <td></td>
+        </tr>
+        <tr>
+        <td>
+        <textarea name="mesaj" cols="36" rows="4" id="textarea4" placeholder="Mesaj"  class="inputtext" ></textarea></td>
+        </tr>
+        <tr>
+        <td></td>
+        </tr>
+        <tr>
+        <td align="left">
+        <input name="gonder" type="submit" value="Gönder" onClick="return gonder_onclick()" />
+        <input name="Submit2" type="reset" value="Temizle" />
+        </td>
+        </tr>
+        </table>
+        </form>
+        
+   </div>     
+       <div id="adresbilgi">
+ADRES BİLGİLERİ <BR><BR>
+Rabindranth Tagore Caddesi 712. Sok.
+No:14/5 Yıldızevler <br>BURSA/TÜRKİYE<br>
+<b>Telefon:</b> +90 224 261 12 30 (3 Hat)<br> <b>Fax:</b> +90 224 264 13 00 <br><b>E-mail:</b> elatek@elatek.com.tr
+
+</div> 
+        
+</body>
+</html>
